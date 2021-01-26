@@ -41,6 +41,12 @@ variable "application_port" {
   default     = 80
 }
 
+variable "remote_port" {
+  description = "Protocols to be used for remote vm access. [protocol, backend_port].  Frontend port will be automatically generated starting at 50000 and in the output."
+  type        = map(any)
+  default     = {}
+}
+
 variable "admin_user" {
   description = "User name to use as the admin account on the VMs that will be part of the VM Scale Set"
   default     = "azureuser"
@@ -48,5 +54,9 @@ variable "admin_user" {
 
 variable "admin_password" {
   description = "Default password for admin account"
+}
+
+variable "custom_image_name" {
+  description = "Custom Image name created using Packer to  be part of the VM Scale Set"
 }
 
